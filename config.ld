@@ -1,0 +1,4 @@
+project = "connman_dbus"
+format = "markdown"
+readme = "README.md"
+file = "connman_dbus.lua"

@@ -1,0 +1,405 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<head>
+    <title>Reference</title>
+    <link rel="stylesheet" href="ldoc.css" type="text/css" />
+</head>
+<body>
+
+<div id="container">
+
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div> <!-- id="product" -->
+
+
+<div id="main">
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<br/>
+<h1>connman_dbus</h1>
+
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#Functions">Functions</a></li>
+<li><a href="#Tables">Tables</a></li>
+</ul>
+
+
+<h2>Modules</h2>
+<ul class="nowrap">
+  <li><strong>connman_dbus</strong></li>
+</ul>
+<h2>Topics</h2>
+<ul class="">
+  <li><a href="topics/README.md.html">README</a></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+<h1>Module <code>connman_dbus</code></h1>
+<p>Get information about your network devices using
+  <a href="https://01.org/connman">Connman</a> and DBus.</p>
+<p>
+
+
+<p>  Requiring this module will return the Connman Manager singleton.</p>
+
+<p>  Example:</p>
+
+
+<pre>
+<span class="keyword">local</span> Manager = <span class="global">require</span>(<span class="string">"connman_dbus"</span>):init()
+<span class="global">print</span>(Manager.current_service.Type, Manager.current_service.Name)
+</pre>
+
+</p>
+    <h3>Info:</h3>
+    <ul>
+        <li><strong>Copyright</strong>: 2016 Stefano Mazzucco</li>
+        <li><strong>License</strong>: Apache License, version 2.0</li>
+        <li><strong>Author</strong>: Stefano Mazzucco <stefano AT curso DOT re></li>
+    </ul>
+
+
+<h2><a href="#Functions">Functions</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#Manager:update_properties">Manager:update_properties ()</a></td>
+	<td class="summary">Update the Manager's own properties.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Manager:update_techs">Manager:update_techs ()</a></td>
+	<td class="summary">Update the available technologies stored in the <code>techs</code> table.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Manager:update_services">Manager:update_services ()</a></td>
+	<td class="summary">Update the Manager's <code>service</code> and <code>current_service</code> fields.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Manager:init">Manager:init ()</a></td>
+	<td class="summary">Initialize the connman Manager singleton.</td>
+	</tr>
+</table>
+<h2><a href="#Tables">Tables</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#Service">Service</a></td>
+	<td class="summary">Connman service (exposed via <code>Manager.services</code> and <code>Manager.current_service</code>).</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Manager">Manager</a></td>
+	<td class="summary">The Connman Manager singleton.</td>
+	</tr>
+</table>
+
+<br/>
+<br/>
+
+
+    <h2 class="section-header "><a name="Functions"></a>Functions</h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "Manager:update_properties"></a>
+    <strong>Manager:update_properties ()</strong>
+    </dt>
+    <dd>
+    Update the Manager's own properties.
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Manager:update_techs"></a>
+    <strong>Manager:update_techs ()</strong>
+    </dt>
+    <dd>
+    Update the available technologies stored in the <code>techs</code> table.
+
+
+
+
+
+    <h3>See also:</h3>
+    <ul>
+         <a href="index.html#Manager">Manager</a>
+    </ul>
+
+
+</dd>
+    <dt>
+    <a name = "Manager:update_services"></a>
+    <strong>Manager:update_services ()</strong>
+    </dt>
+    <dd>
+    Update the Manager's <code>service</code> and <code>current_service</code> fields.
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Manager:init"></a>
+    <strong>Manager:init ()</strong>
+    </dt>
+    <dd>
+    Initialize the connman Manager singleton.
+ Update own properties, services and technologies.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        self
+    </ol>
+
+
+    <h3>See also:</h3>
+    <ul>
+         <li><a href="index.html#Manager:update_properties">Manager:update_properties</a></li>
+         <li><a href="index.html#Manager:update_services">Manager:update_services</a></li>
+         <li><a href="index.html#Manager:update_techs">Manager:update_techs</a></li>
+    </ul>
+
+
+</dd>
+</dl>
+    <h2 class="section-header "><a name="Tables"></a>Tables</h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "Service"></a>
+    <strong>Service</strong>
+    </dt>
+    <dd>
+    Connman service (exposed via <code>Manager.services</code> and <code>Manager.current_service</code>).
+
+
+    <h3>Fields:</h3>
+    <ul>
+        <li><span class="parameter">dbus</span>
+
+<p> table containing the DBus information for the service:</p>
+
+<ul>
+    <li><code>path</code>: the service's object path (string)</li>
+    <li><code>dest</code>: "net.connman"</li>
+    <li><code>interface</code>: "net.connman.Service"</li>
+    <li><code>bus</code>: "system"</li>
+</ul>
+
+
+        </li>
+        <li><span class="parameter">Name</span>
+         the SSID (like "MyWireless"), absent for ethernet and hidden Wifi
+        </li>
+        <li><span class="parameter">Type</span>
+         the service type, like  "wifi" or "ethernet"
+        </li>
+        <li><span class="parameter">State</span>
+         one of "idle", "failure", "association", "configuration", "ready", "disconnect" or "online"
+        </li>
+        <li><span class="parameter">Strength</span>
+         WiFi signal strength between 0 and 100
+        </li>
+        <li><span class="parameter">Favorite</span>
+         bool, will be true if a cable is plugged in or the user selected and successfully connected to this service.
+        </li>
+        <li><span class="parameter">AutoConnect</span>
+         bool
+        </li>
+        <li><span class="parameter">Immutable</span>
+         bool
+        </li>
+        <li><span class="parameter">Ethernet</span>
+
+<p> table</p>
+
+<ul>
+    <li><code>Interface</code>: like "wlo1", "eth0", etc.</li>
+    <li><code>Address</code>: the MAC address</li>
+    <li><code>MTU</code>: like 1500</li>
+    <li><code>Method</code>: like "auto"</li>
+</ul>
+
+
+        </li>
+        <li><span class="parameter">Security</span>
+         array of supported security, the elements can be: "none", "wep", "psk", "ieee8021x" or "wps"
+        </li>
+        <li><span class="parameter">Provider</span>
+         table
+        </li>
+        <li><span class="parameter">Domains</span> array
+        <ul>
+        <li><span class="parameter">Configuration</span>
+         table
+        </li>
+        </li></ul>
+        <li><span class="parameter">Nameservers</span> array
+        <ul>
+        <li><span class="parameter">Configuration</span>
+         table
+        </li>
+        </li></ul>
+        <li><span class="parameter">IPv4</span>
+<p> table</p>
+
+<ul>
+    <li><code>Netmask</code></li>
+    <li><code>Gateway</code></li>
+    <li><code>Address</code></li>
+</ul>
+
+
+        <ul>
+        <li><span class="parameter">Configuration</span>
+
+<p> table</p>
+
+<ul>
+    <li><code>Method</code></li>
+</ul>
+
+
+        </li>
+        </li></ul>
+        <li><span class="parameter">IPv6</span>
+<p> table</p>
+
+<ul>
+    <li><code>Netmask</code></li>
+    <li><code>Gateway</code></li>
+    <li><code>Address</code></li>
+</ul>
+
+
+        <ul>
+        <li><span class="parameter">Configuration</span>
+
+<p> table</p>
+
+<ul>
+    <li><code>Method</code></li>
+</ul>
+
+
+        </li>
+        </li></ul>
+        <li><span class="parameter">Proxy</span> table
+        <ul>
+        <li><span class="parameter">Configuration</span>
+         table
+        </li>
+        </li></ul>
+        <li><span class="parameter">Timeservers</span> array
+        <ul>
+        <li><span class="parameter">Configuration</span>
+         table
+        </li>
+        </li></ul>
+        <li><span class="parameter">Error</span>
+         one of "out-of-range", "pin-missing", "dhcp-failed", "connect-failed", "login-failed", "auth-failed" or "invalid-key"
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Manager"></a>
+    <strong>Manager</strong>
+    </dt>
+    <dd>
+
+<p>The Connman Manager singleton.  This table is returned when the module is loaded with <a href="https://www.lua.org/manual/5.3/manual.html#pdf-require">require</a>.
+  Call <code>Manager:init()</code> to initialize it.</p>
+
+<p>  E.g.</p>
+
+<pre><code>  Manager = require("connman_dbus"):init()
+</code></pre>
+
+
+
+
+    <h3>Fields:</h3>
+    <ul>
+        <li><span class="parameter">State</span>
+         "offline", "idle", "ready" or "online"
+        </li>
+        <li><span class="parameter">OfflineMode</span>
+         bool
+        </li>
+        <li><span class="parameter">SessionMode</span>
+         bool (deprecated, always false)
+        </li>
+        <li><span class="parameter">techs</span>
+
+<p> table of technologies. Each
+  key is the object path and each value is
+  the table containing the tech's properties:</p>
+
+<ul>
+    <li><code>Powered</code>: bool</li>
+    <li><code>Connected</code>: bool</li>
+    <li><code>Name</code>: str</li>
+    <li><code>Type</code>: str ("ethernet", "wifi", etc.)</li>
+</ul>
+
+
+        </li>
+        <li><span class="parameter">services</span>
+         array of services (sorted by Connman in order of preference)
+        </li>
+        <li><span class="parameter">current_service</span>
+         the currently active service
+        </li>
+        <li><span class="parameter">dbus</span>
+         table with DBus information
+        </li>
+    </ul>
+
+
+
+    <h3>See also:</h3>
+    <ul>
+         <li><a href="index.html#Service">Service</a></li>
+         <li><a href="index.html#Manager:init">Manager:init</a></li>
+    </ul>
+
+
+</dd>
+</dl>
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.5</a></i>
+<i style="float:right;">Last updated 2016-10-04 22:07:41 </i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+</body>
+</html>
