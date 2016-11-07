@@ -16,7 +16,7 @@ This module can be installed with [Luarocks](http://luarocks.org/) by running
 
     luarocks install connman_dbus
 
-Use the `--user` option in `luarocks` if you don't want or can't install it
+Use the `--local` option in `luarocks` if you don't want or can't install it
 system-wide.
 
 # Example
