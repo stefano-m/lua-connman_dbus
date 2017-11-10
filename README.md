@@ -36,6 +36,13 @@ print(active_service_service.Type)
 print(active_service_service.State)
 -- e.g. "online"
 
+active_service = connman.services[1]
+print(active_service.object_path)
+-- e.g. "/net/connman/service/wifi_12341234_abcdabcd_managed_psk"
+assert(connman.services[active_service.object_path] == connman.services[1])
+-- true (assuming that the service priority has not changed)
+active_service:Disconnect()
+
 tech = connman:GetTechnologies()[1]
 print(tech[1])
 -- e.g. "/net/connman/technology/ethernet"
@@ -56,11 +63,12 @@ but you can build it from source by running `ldoc .` in the root of the reposito
 
 # Limitations
 
-At the moment, only
-the
-[Connman Manager API](https://git.kernel.org/pub/scm/network/connman/connman.git/tree/doc/manager-api.txt) is
-supported. This is enough to get information about services and technologies,
-but does not allow to implement a fully functional client.
+This module exposes the [Connman Manager
+API](https://git.kernel.org/pub/scm/network/connman/connman.git/tree/doc/manager-api.txt)
+and the [Connman Service
+API](https://git.kernel.org/pub/scm/network/connman/connman.git/tree/doc/service-api.txt). This
+is enough to get information about services and technologies, but does not
+allow one to implement a fully functional client.
 
 # Contributing
 

@@ -18,5 +18,5 @@ package = "connman_dbus"
  build = {
     type = "builtin",
     modules = { connman_dbus = "connman_dbus.lua" },
-    copy_directories = { "doc" }
+    copy_directories = { "docs" }
  }
