@@ -32,8 +32,7 @@ local table = table
 
 local proxy = require("dbus_proxy")
 
-local function _update_property(self, params)
-  local prop_name, prop_value = table.unpack(params)
+local function _update_property(self, prop_name, prop_value)
   self[prop_name] = prop_value
 end
 
@@ -144,10 +143,8 @@ function Manager:refresh_services()
 
 end
 
-local function _update_services(self, params)
+local function _update_services(self, changed, removed)
   self:refresh_services()
-
-  local changed, removed = table.unpack(params)
 
   for _, path in ipairs(removed) do
     self.services[path] = nil
