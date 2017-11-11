@@ -17,6 +17,6 @@ package = "connman_dbus"
  supported_platforms = { "linux" }
  build = {
     type = "builtin",
-    modules = { connman_dbus = "connman_dbus.lua" },
+    modules = { ["connman_dbus.init"] = "src/connman_dbus/init.lua" },
     copy_directories = { "docs" }
- }
+}

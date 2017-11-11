@@ -26,6 +26,7 @@
   @license Apache License, version 2.0
   @author Stefano Mazzucco <stefano AT curso DOT re>
   @copyright 2017 Stefano Mazzucco
+  @module connman_dbus
 ]]
 local table = table
 
