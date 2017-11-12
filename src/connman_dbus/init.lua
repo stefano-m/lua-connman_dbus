@@ -36,6 +36,10 @@ local table = table
 local GVariant = require("lgi").GLib.Variant
 local proxy = require("dbus_proxy")
 
+local _Service = require("connman_dbus._service")
+
+local _prototypes = {Service = {__index = _Service}}
+
 local function _update_property(self, prop_name, prop_value)
   self[prop_name] = prop_value
 end
@@ -51,6 +55,10 @@ local function _get(what, path)
   )
   if obj then
     obj:connect_signal(_update_property, "PropertyChanged")
+    local meta = _prototypes[what]
+    if meta then
+      setmetatable(obj, meta)
+    end
   end
   return obj
 end

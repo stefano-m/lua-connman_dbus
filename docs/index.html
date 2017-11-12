@@ -31,6 +31,7 @@
 <ul>
 <li><a href="#Functions">Functions</a></li>
 <li><a href="#Tables">Tables</a></li>
+<li><a href="#_service_Functions">_service Functions</a></li>
 </ul>
 
 
@@ -73,7 +74,7 @@
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#Manager:toggle_offline_mode">Manager:toggle_offline_mode ()</a></td>
-	<td class="summary">Toggle the global offline mode</td>
+	<td class="summary">Toggle the global offline mode.</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#Manager:refresh_services">Manager:refresh_services ()</a></td>
@@ -97,6 +98,46 @@
 	<tr>
 	<td class="name" nowrap><a href="#Manager.technologies">Manager.technologies</a></td>
 	<td class="summary">Available Technologies.</td>
+	</tr>
+</table>
+<h2><a href="#_service_Functions">_service Functions</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#Service:enable_autoconnect">Service:enable_autoconnect (should_autoconnect)</a></td>
+	<td class="summary">Set whether the service should connect automatically.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Service:toggle_autoconnect">Service:toggle_autoconnect ()</a></td>
+	<td class="summary">Toggle the AutoConnect property.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Service:configure_nameservers">Service:configure_nameservers (nameservers)</a></td>
+	<td class="summary">Manually configure the domain name (DNS) servers.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Service:configure_timeservers">Service:configure_timeservers (timeservers)</a></td>
+	<td class="summary">Manually configure the time servers.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Service:configure_search_domains">Service:configure_search_domains (searchdomains)</a></td>
+	<td class="summary">Manually configure the search domains (instead of using DHCP or VPN).</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Service:configure_ipv4">Service:configure_ipv4 (config)</a></td>
+	<td class="summary">Configure IPv4.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Service:configure_ipv6">Service:configure_ipv6 (config)</a></td>
+	<td class="summary">Configure IPv6.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Service:configure_proxy">Service:configure_proxy (config)</a></td>
+	<td class="summary">Configure the proxy server.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Service:enable_mdns">Service:enable_mdns (use_mdns)</a></td>
+	<td class="summary">Set whether <a href="https://en.wikipedia.org/wiki/MDNS">Multicast DNS (mDNS)</a> should
+  be enabled for this service.</td>
 	</tr>
 </table>
 
@@ -259,13 +300,283 @@ might be allowed in some situations.
 
 </dd>
 </dl>
+    <h2 class="section-header "><a name="_service_Functions"></a>_service Functions</h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "Service:enable_autoconnect"></a>
+    <strong>Service:enable_autoconnect (should_autoconnect)</strong>
+    </dt>
+    <dd>
+    Set whether the service should connect automatically. </p>
+
+<p>  If set to true, this service will auto-connect when no other connection is
+available.</p>
+
+<p>  The service won't auto-connect while roaming.</p>
+
+<p>  For favorite services it is possible to change this value to prevent or
+permit automatic connection attempts.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">should_autoconnect</span>
+            <span class="types"><span class="type">bool</span></span>
+         whether the service should connect automatically.
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Service:toggle_autoconnect"></a>
+    <strong>Service:toggle_autoconnect ()</strong>
+    </dt>
+    <dd>
+    Toggle the AutoConnect property.
+
+
+
+
+
+    <h3>See also:</h3>
+    <ul>
+    </ul>
+
+
+</dd>
+    <dt>
+    <a name = "Service:configure_nameservers"></a>
+    <strong>Service:configure_nameservers (nameservers)</strong>
+    </dt>
+    <dd>
+    Manually configure the domain name (DNS) servers. </p>
+
+<p>Some cellular networks don't provide correct name servers and this allows for
+an override.</p>
+
+<p>When using manual configuration and no global nameservers are configured, then
+it is useful to configure this setting.</p>
+
+<p>Changes to the domain name servers can be done at any time. It will not cause a
+disconnect of the service. However there might be small window where name
+resolution might fail.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">nameservers</span>
+            <span class="types"><span class="type">{string,...}</span></span>
+         Array of strings. This array is sorted by priority
+and the first entry in the list represents the nameserver with the highest
+priority.
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Service:configure_timeservers"></a>
+    <strong>Service:configure_timeservers (timeservers)</strong>
+    </dt>
+    <dd>
+    Manually configure the time servers. </p>
+
+<p>  When using manual configuration this setting is useful to override all the
+other timeserver settings. This is service specific, hence only the values for
+the default service are used.</p>
+
+<p>  Calling this method will result in restart of NTP query.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">timeservers</span>
+            <span class="types"><span class="type">{string,...}</span></span>
+         Array of strings. The first entry in the
+list represents the timeserver with the highest priority.
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Service:configure_search_domains"></a>
+    <strong>Service:configure_search_domains (searchdomains)</strong>
+    </dt>
+    <dd>
+    Manually configure the search domains (instead of using DHCP or VPN).
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">searchdomains</span>
+            <span class="types"><span class="type">{string,...}</span></span>
+         Array of strings.
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Service:configure_ipv4"></a>
+    <strong>Service:configure_ipv4 (config)</strong>
+    </dt>
+    <dd>
+    Configure IPv4. </p>
+
+<p>Calling this method will cause a state change of the service. The service
+will become unavailable until the new configuration has been successfully
+installed.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">config</span>
+            <span class="types"><span class="type">table</span></span>
+
+<p> table with the following fields:</p>
+
+<ul>
+    <li><code>Method</code> (string) Possible values are <code>dhcp</code>, <code>manual</code>, <code>auto</code> and <code>off</code>.</li>
+    <li><code>Address</code> (string) The IPv4 address.</li>
+    <li><code>Netmask</code> (string) The IPv4 netmask.</li>
+    <li><code>Gateway</code> (string) The IPv4 gateway.</li>
+</ul>
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Service:configure_ipv6"></a>
+    <strong>Service:configure_ipv6 (config)</strong>
+    </dt>
+    <dd>
+    Configure IPv6. </p>
+
+<p>Calling this method will cause a state change of the service. The service
+will become unavailable until the new configuration has been successfully
+installed.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">config</span>
+            <span class="types"><span class="type">table</span></span>
+
+<p> table with the following fields:</p>
+
+<ul>
+    <li><code>Method</code> (string) Possible values are <code>auto</code>, <code>manual</code>, and <code>off</code>.</li>
+    <li><code>Address</code> (string) The IPv6 address.</li>
+    <li><code>PrefixLength</code> (number) The prefix length of the IPv6 address.</li>
+    <li><code>Gateway</code> (string) The IPv6 gateway.</li>
+    <li><code>Privacy</code> (string) Set the IPv6 privacy extension as described in
+    <a href="https://tools.ietf.org/html/rfc4941">RFC4941</a>. The value has only meaning
+    if <code>Method</code> is set to <code>auto</code>. Possible values are <code>disabled</code>, <code>enabled</code> and
+    <code>preferred</code>.</li>
+</ul>
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Service:configure_proxy"></a>
+    <strong>Service:configure_proxy (config)</strong>
+    </dt>
+    <dd>
+    Configure the proxy server.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">config</span>
+            <span class="types"><span class="type">table</span></span>
+
+<p> table with the following fields:</p>
+
+<ul>
+    <li><code>Method</code> (string) Possible values are <code>direct</code>, <code>auto</code> and <code>manual</code>. In
+    case of <code>auto</code> method, the URL file can be provided by the <code>URL</code> field
+    (unless you want to let DHCP/WPAD auto-discover to be tried). For the
+    <code>manual</code> method the <code>Servers</code> field <strong>must</strong> be set, the <code>Excludes</code> field
+    is optional.</li>
+    <li><code>URL</code> (string) Automatic proxy configuration URL. Needed when <code>Method</code> is
+    set to <code>auto</code>.</li>
+    <li><code>Servers</code> ({string,...}) List of proxy URIs. The URI without a protocol
+    will be interpreted as the generic proxy URI.  All others will target a
+    specific protocol and only once. This field <strong>must</strong> be set if <code>Method</code> is
+    set to <code>manual</code>. For example, a generic proxy URI may look like
+    <code>server.example.com:911</code>.</li>
+    <li><code>Excludes</code> ({string,...}) List of hosts which can be accessed without the
+    need of a proxy. This field is optionally used when <code>Method</code> is set to <code>auto</code>.</li>
+</ul>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Service:enable_mdns"></a>
+    <strong>Service:enable_mdns (use_mdns)</strong>
+    </dt>
+    <dd>
+    Set whether <a href="https://en.wikipedia.org/wiki/MDNS">Multicast DNS (mDNS)</a> should
+  be enabled for this service. </p>
+
+<p>  <strong>Note</strong>: mDNS requires a DNS backend which supports it. Currently the only
+  DNS backend which supports mDNS is <code>systemd-resolved</code>.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">use_mdns</span>
+            <span class="types"><span class="type">bool</span></span>
+         Whether mDNS should be used.
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+</dl>
 
 
 </div> <!-- id="content" -->
 </div> <!-- id="main" -->
 <div id="about">
 <i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a></i>
-<i style="float:right;">Last updated 2017-11-12 20:38:52 </i>
+<i style="float:right;">Last updated 2017-11-12 21:51:05 </i>
 </div> <!-- id="about" -->
 </div> <!-- id="container" -->
 </body>

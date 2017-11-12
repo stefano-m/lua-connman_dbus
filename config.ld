@@ -2,6 +2,9 @@ title = "Lua Connman DBus Documentation"
 project = "connman_dbus"
 format = "markdown"
 readme = "README.md"
-file = "src/connman_dbus/init.lua"
+file = {
+  "src/connman_dbus/init.lua",
+  "src/connman_dbus/_service.lua",
+}
 dir = "docs"
 no_lua_ref = true
