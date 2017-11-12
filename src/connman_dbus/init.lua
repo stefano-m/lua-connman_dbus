@@ -33,6 +33,7 @@
 ]]
 local table = table
 
+local GVariant = require("lgi").GLib.Variant
 local proxy = require("dbus_proxy")
 
 local function _update_property(self, prop_name, prop_value)
@@ -158,6 +159,29 @@ local _delegate_index_mt = {
   @table Manager
 ]]
 local Manager = _get("Manager", "/")
+
+--[[-- Set the global offline mode.
+
+The offline mode indicates the global setting for switching all radios on or
+off. Changing offline mode to true results in powering down all devices. When
+leaving offline mode the individual policy of each device decides to switch the
+radio back on or not.
+
+During offline mode, it is still possible to switch certain technologies
+manually back on. For example the limited usage of WiFi or Bluetooth devices
+might be allowed in some situations.
+
+@bool is_offline whether offline mode should be turned on
+]]
+function Manager:enable_offline_mode(is_offline)
+  self:SetProperty("OfflineMode", GVariant("b", is_offline))
+end
+
+--- Toggle the global offline mode.
+-- @see Manager:set_offline_mode
+function Manager:toggle_offline_mode()
+  self:enable_offline_mode(not self.OfflineMode)
+end
 
 local function _init()
   for k, v in pairs(Manager:GetProperties()) do
