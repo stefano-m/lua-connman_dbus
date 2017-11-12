@@ -137,6 +137,15 @@ local _delegate_index_mt = {
       end
     end
     rawset(t, k, v)
+  end,
+  __len = function (t)
+    local count = 0
+    for k, _ in pairs(t) do
+      if type(k) == "string" then
+        count = count +1
+      end
+    end
+    return count
   end
 }
 
