@@ -5,6 +5,7 @@ readme = "README.md"
 file = {
   "src/connman_dbus/init.lua",
   "src/connman_dbus/_service.lua",
+  "src/connman_dbus/_technology.lua",
 }
 dir = "docs"
 no_lua_ref = true

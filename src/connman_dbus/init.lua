@@ -37,8 +37,12 @@ local GVariant = require("lgi").GLib.Variant
 local proxy = require("dbus_proxy")
 
 local _Service = require("connman_dbus._service")
+local _Technology = require("connman_dbus._technology")
 
-local _prototypes = {Service = {__index = _Service}}
+local _prototypes = {
+  Service = {__index = _Service},
+  Technology = {__index = _Technology}
+}
 
 local function _update_property(self, prop_name, prop_value)
   self[prop_name] = prop_value

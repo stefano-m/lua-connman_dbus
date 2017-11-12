@@ -32,6 +32,7 @@
 <li><a href="#Functions">Functions</a></li>
 <li><a href="#Tables">Tables</a></li>
 <li><a href="#_service_Functions">_service Functions</a></li>
+<li><a href="#_technology_Functions">_technology Functions</a></li>
 </ul>
 
 
@@ -138,6 +139,33 @@
 	<td class="name" nowrap><a href="#Service:enable_mdns">Service:enable_mdns (use_mdns)</a></td>
 	<td class="summary">Set whether <a href="https://en.wikipedia.org/wiki/MDNS">Multicast DNS (mDNS)</a> should
   be enabled for this service.</td>
+	</tr>
+</table>
+<h2><a href="#_technology_Functions">_technology Functions</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#Technology:enable_power">Technology:enable_power (is_powered)</a></td>
+	<td class="summary">Set whether the Technology should be powered.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Technology:toggle_power">Technology:toggle_power ()</a></td>
+	<td class="summary">Toggle the power state.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Technology:enable_tethering">Technology:enable_tethering (is_tethered)</a></td>
+	<td class="summary">Whether tethering should be enabled.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Technology:toggle_tethering">Technology:toggle_tethering ()</a></td>
+	<td class="summary">Toggle the tethering state.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Technology:set_tethering_identifier">Technology:set_tethering_identifier (id)</a></td>
+	<td class="summary">Set the tethering broadcasted identifier.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Technology:set_tethering_passphrase">Technology:set_tethering_passphrase (secret)</a></td>
+	<td class="summary">Set the tethering connection passphrase (<strong>sensitive!</strong>).</td>
 	</tr>
 </table>
 
@@ -570,13 +598,155 @@ installed.
 
 </dd>
 </dl>
+    <h2 class="section-header "><a name="_technology_Functions"></a>_technology Functions</h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "Technology:enable_power"></a>
+    <strong>Technology:enable_power (is_powered)</strong>
+    </dt>
+    <dd>
+    Set whether the Technology should be powered.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">is_powered</span>
+            <span class="types"><span class="type">bool</span></span>
+         Whether the Technology should be powered.
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Technology:toggle_power"></a>
+    <strong>Technology:toggle_power ()</strong>
+    </dt>
+    <dd>
+    Toggle the power state.
+
+
+
+
+
+    <h3>See also:</h3>
+    <ul>
+         <a href="index.html#Technology:enable_power">Technology:enable_power</a>
+    </ul>
+
+
+</dd>
+    <dt>
+    <a name = "Technology:enable_tethering"></a>
+    <strong>Technology:enable_tethering (is_tethered)</strong>
+    </dt>
+    <dd>
+    Whether tethering should be enabled. </p>
+
+<p>  This method allows one to enable or disable the support for tethering. When
+  tethering is enabled then the default service is bridged to all clients
+  connected through the technology.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">is_tethered</span>
+            <span class="types"><span class="type">bool</span></span>
+         Whether tethering is enabled.
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Technology:toggle_tethering"></a>
+    <strong>Technology:toggle_tethering ()</strong>
+    </dt>
+    <dd>
+    Toggle the tethering state.
+
+
+
+
+
+    <h3>See also:</h3>
+    <ul>
+         <a href="index.html#Technology:enable_tethering">Technology:enable_tethering</a>
+    </ul>
+
+
+</dd>
+    <dt>
+    <a name = "Technology:set_tethering_identifier"></a>
+    <strong>Technology:set_tethering_identifier (id)</strong>
+    </dt>
+    <dd>
+    Set the tethering broadcasted identifier. </p>
+
+<p>  This method is only valid for the WiFi technology, and is then mapped to the
+  WiFi AP SSID clients will have to join in order to gain internet
+  connectivity.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">id</span>
+            <span class="types"><span class="type">string</span></span>
+         The tethering identifier.
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Technology:set_tethering_passphrase"></a>
+    <strong>Technology:set_tethering_passphrase (secret)</strong>
+    </dt>
+    <dd>
+    Set the tethering connection passphrase (<strong>sensitive!</strong>). </p>
+
+<p>  This method is only valid for the WiFi technology, and is then mapped to
+  the WPA pre-shared key clients will have to use in order to establish a
+  connection.</p>
+
+<p><strong>IMPORTANT SECURITY NOTE</strong></p>
+
+<p>  Take extra care when using this method and the corresponding
+<code>TetheringPassphrase</code> field as connman does not make any security guarantee in
+regard!!!
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">secret</span>
+            <span class="types"><span class="type">string</span></span>
+         The tethering passphrase.
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+</dl>
 
 
 </div> <!-- id="content" -->
 </div> <!-- id="main" -->
 <div id="about">
 <i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a></i>
-<i style="float:right;">Last updated 2017-11-12 21:51:05 </i>
+<i style="float:right;">Last updated 2017-11-12 22:11:32 </i>
 </div> <!-- id="about" -->
 </div> <!-- id="container" -->
 </body>
