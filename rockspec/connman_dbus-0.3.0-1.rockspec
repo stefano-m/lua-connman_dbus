@@ -7,7 +7,7 @@ source = {
 description = {
    summary = "Get network information with Connman and DBus",
    detailed = "Get network information with Connman and DBus",
-   homepage = "https://github.com/stefano-m/lua-connman_dbus",
+   homepage = "git+https://github.com/stefano-m/lua-connman_dbus",
    license = "Apache v2.0"
 }
 supported_platforms = {
