@@ -1,0 +1,49 @@
+{
+  "nodes": {
+    "dbusProxyFlake": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1718290942,
+        "narHash": "sha256-H5dnVVAdfnTHX7w3YSlBbkTN1WrKbhRb9t1Q4SvwJ7I=",
+        "owner": "stefano-m",
+        "repo": "lua-dbus_proxy",
+        "rev": "0d0f42d074beca5b1a36d676a822480a3d4c6bb2",
+        "type": "github"
+      },
+      "original": {
+        "owner": "stefano-m",
+        "ref": "master",
+        "repo": "lua-dbus_proxy",
+        "type": "github"
+      }
+    },
+    "nixpkgs": {
+      "locked": {
+        "lastModified": 1727672256,
+        "narHash": "sha256-9/79hjQc9+xyH+QxeMcRsA6hDyw6Z9Eo1/oxjvwirLk=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "1719f27dd95fd4206afb9cec9f415b539978827e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-24.05",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "root": {
+      "inputs": {
+        "dbusProxyFlake": "dbusProxyFlake",
+        "nixpkgs": "nixpkgs"
+      }
+    }
+  },
+  "root": "root",
+  "version": 7
+}

@@ -199,7 +199,7 @@ function Manager:enable_offline_mode(is_offline)
 end
 
 --- Toggle the global offline mode.
--- @see Manager:set_offline_mode
+-- @see Manager:enable_offline_mode
 function Manager:toggle_offline_mode()
   self:enable_offline_mode(not self.OfflineMode)
 end

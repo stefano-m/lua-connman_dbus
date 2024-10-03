@@ -21,10 +21,9 @@ This module can be installed with [Luarocks](http://luarocks.org/) by running
 Use the `--local` option in `luarocks` if you don't want or can't install it
 system-wide.
 
-## NixOS
+## NixOS (flakes)
 
-If you are on NixOS, you can install this package from
-[nix-stefano-m-overlays](https://github.com/stefano-m/nix-stefano-m-nix-overlays).
+If you are on NixOS, you can install this package using nix flakes.
 
 # Example
 
