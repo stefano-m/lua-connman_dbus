@@ -55,10 +55,10 @@ upload:
 ifndef LUAROCKS_API_KEY
 	$(error LUAROCKS_API_KEY must be defined)
 endif
-ifndef LUA_DBUS_PROXY_VERSION
-	$(error LUA_DBUS_PROXY_VERSION must be defined)
+ifndef LUA_CONNMAN_DBUS_VERSION
+	$(error LUA_CONNMAN_DBUS_VERSION must be defined)
 endif
-	@luarocks upload --api-key=$(LUAROCKS_API_KEY) rockspec/$(project)-$(LUA_DBUS_PROXY_VERSION).rockspec
+	@luarocks upload --api-key=$(LUAROCKS_API_KEY) rockspec/$(project)-$(LUA_CONNMAN_DBUS_VERSION).rockspec
 
 .PHONY: clean
 clean:
