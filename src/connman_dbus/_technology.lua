@@ -15,10 +15,12 @@
 ]]
 
 --- @submodule connman_dbus
+local DbusProxy = require('dbus_proxy').Proxy
 
 local GVariant = require("lgi").GLib.Variant
 
 local Technology = {}
+setmetatable(Technology, {__index = DbusProxy})
 
 --[[-- Set whether the Technology should be powered.
 

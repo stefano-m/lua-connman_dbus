@@ -33,5 +33,19 @@ else
   )
 
   assert(service[2].State ~= nil, "Service state should not be nil")
+
+  local service_proxy = connman.services[1]
+
+  assert(service_proxy ~= nil, "There should be at least one service proxy object")
+
+  assert(type(service_proxy.connect_signal) == "function",
+         "service proxy object should have a connect_signal function")
+
+  local tech = connman.technologies["/net/connman/technology/wifi"]
+
+  assert(tech ~= nil, "WiFi technology should be present")
+
+  assert(type(tech.connect_signal) == "function", "technology object should have a connect_signal function")
+
   print("Test PASSED")
 end

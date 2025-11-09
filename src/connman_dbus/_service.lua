@@ -16,9 +16,12 @@
 
 --- @submodule connman_dbus
 
+local DbusProxy = require('dbus_proxy').Proxy
+
 local GVariant = require("lgi").GLib.Variant
 
 local Service = {}
+setmetatable(Service, {__index = DbusProxy})
 
 --[[-- Set whether the service should connect automatically.
 
