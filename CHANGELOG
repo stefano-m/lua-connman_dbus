@@ -1,0 +1,13 @@
+* Release v0.5.1
+
+Stefano Mazzucco (9):
+      Add build 2 of 0.5.0 rockspec with correct contents
+      Use correct git+https url syntax in rockspec
+      Add nix support, simple tests, Makefile, fix docs
+      Update flake.lock
+      Add gobject-introspection to propagatedBuildInputs in flake.nix
+      Use Lua 5.3 in Nix default devshell
+      Fix Service and Technology objects not inheriting Proxy methods
+      Update copyright year
+      Add CHANGELOG file
+
