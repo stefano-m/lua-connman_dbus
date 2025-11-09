@@ -7,11 +7,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1718290942,
-        "narHash": "sha256-H5dnVVAdfnTHX7w3YSlBbkTN1WrKbhRb9t1Q4SvwJ7I=",
+        "lastModified": 1728059735,
+        "narHash": "sha256-AeKYKaPYADWkufB9OicPNTrcm1mQfkuMI+7WKidppNw=",
         "owner": "stefano-m",
         "repo": "lua-dbus_proxy",
-        "rev": "0d0f42d074beca5b1a36d676a822480a3d4c6bb2",
+        "rev": "986bf1a4dc481a753c812c6035d2277a149c9b2a",
         "type": "github"
       },
       "original": {
@@ -23,11 +23,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1727672256,
-        "narHash": "sha256-9/79hjQc9+xyH+QxeMcRsA6hDyw6Z9Eo1/oxjvwirLk=",
+        "lastModified": 1735563628,
+        "narHash": "sha256-OnSAY7XDSx7CtDoqNh8jwVwh4xNL/2HaJxGjryLWzX8=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "1719f27dd95fd4206afb9cec9f415b539978827e",
+        "rev": "b134951a4c9f3c995fd7be05f3243f8ecd65d798",
         "type": "github"
       },
       "original": {
