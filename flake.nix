@@ -24,6 +24,7 @@
 
           propagatedBuildInputs = [
             dbus_proxy
+            flakePkgs.gobject-introspection
           ];
 
           buildInputs = [
