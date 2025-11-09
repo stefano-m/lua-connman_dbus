@@ -1,5 +1,5 @@
 --[[
-  Copyright 2017 Stefano Mazzucco
+  Copyright 2017-2025 Stefano Mazzucco
 
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
@@ -28,7 +28,7 @@
 
   @license Apache License, version 2.0
   @author Stefano Mazzucco <stefano AT curso DOT re>
-  @copyright 2017 Stefano Mazzucco
+  @copyright 2017-2025 Stefano Mazzucco
   @module connman_dbus
 ]]
 local table = table
