@@ -64,6 +64,7 @@
         lua_connman_dbus = buildPackage flakePkgs.luaPackages;
         lua52_connman_dbus = buildPackage flakePkgs.lua52Packages;
         lua53_connman_dbus = buildPackage flakePkgs.lua53Packages;
+        luajit_connman_dbus = buildPackage flakePkgs.luajitPackages;
       };
 
       devShells.${system}.default = flakePkgs.mkShell {
